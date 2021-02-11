@@ -19,6 +19,8 @@
   "rules": {
     "prettier/prettier": "error",
     "arrow-body-style": "off",
-    "prefer-arrow-callback": "off"
+    "prefer-arrow-callback": "off",
+    "camelcase":"off",
+    "no-useless-constructor":"off"
   }
 }

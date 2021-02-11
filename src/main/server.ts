@@ -9,7 +9,7 @@ app.use(express.json());
 createConnection(ormConfig).then(async () => {
   console.log('[DATABASE] - Database is up');
 
-  app.listen(process.env.PORT, () =>
-    console.log('[SERVER] - Server is running'),
-  );
+  app.use('/courses', (await import('./routes/class.routes')).default);
+
+  app.listen(process.env.PORT, () => console.log('[SERVER] - Server is running'));
 });

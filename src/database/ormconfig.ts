@@ -5,6 +5,6 @@ export const ormConfig = {
   username: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
   database: process.env.DB_DATABASE,
-  entities: ['dist/entities/*.entity.js'],
+  entities: ['dist/modules/**/entities/*.entity.js'],
   synchronize: true,
 };
