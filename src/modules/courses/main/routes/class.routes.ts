@@ -1,7 +1,7 @@
 import { Router } from 'express';
-import { CourseController } from '../../modules/courses/controllers/course-controller';
-import { CourseRepository } from '../../repositories/course-repository';
-import { CourseService } from '../../modules/courses/services/class-service';
+import { CourseRepository } from '../../../../repositories/course-repository';
+import { CourseController } from '../../controllers/course-controller';
+import { CourseService } from '../../services/class-service';
 
 const router = Router();
 
