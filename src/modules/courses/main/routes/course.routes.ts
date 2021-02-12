@@ -2,7 +2,7 @@ import { Router } from 'express';
 import { CourseRepository } from '../../../../repositories/course-repository';
 import { DtoValidation } from '../../../../validation/dto-validation';
 import { CourseController } from '../../controllers/course-controller';
-import { CourseService } from '../../services/class-service';
+import { CourseService } from '../../services/course-service';
 
 const router = Router();
 
