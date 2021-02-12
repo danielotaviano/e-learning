@@ -1,4 +1,4 @@
-import { HttpResponse } from '../../modules/courses/main/interfaces/http.interface';
+import { HttpResponse } from '../interfaces/http.interface';
 
 export const ok = (data: any, statusCode = 200): HttpResponse => ({
   statusCode,

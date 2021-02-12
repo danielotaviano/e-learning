@@ -3,7 +3,7 @@ import { DeleteCourseDto } from '../dtos/delete-course-dto';
 import { GetCourseDto } from '../dtos/get-course-dto';
 import { GetCourseModulesDto } from '../dtos/get-course-modules-dto';
 import { UpdateCourseDto } from '../dtos/update-course-dto';
-import { HttpResponse } from '../main/interfaces/http.interface';
+import { HttpResponse } from '../../../main/interfaces/http.interface';
 
 export interface CourseControllerInterface {
   createCourse(courseDto: CreateCourseDto): Promise<HttpResponse>;

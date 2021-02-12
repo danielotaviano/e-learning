@@ -7,7 +7,7 @@ import { GetCourseModulesDto } from '../dtos/get-course-modules-dto';
 import { UpdateCourseDto } from '../dtos/update-course-dto';
 import { CourseControllerInterface } from '../interfaces/course-controller.interface';
 import { CourseServiceInterface } from '../interfaces/course-service.interface';
-import { HttpResponse } from '../main/interfaces/http.interface';
+import { HttpResponse } from '../../../main/interfaces/http.interface';
 
 export class CourseController implements CourseControllerInterface {
   constructor(
