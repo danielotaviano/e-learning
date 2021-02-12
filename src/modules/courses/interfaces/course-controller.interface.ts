@@ -9,4 +9,5 @@ export interface CourseControllerInterface {
   getCourse(courseDto: GetCourseDto): Promise<Course>;
   deleteCourse(courseDto: DeleteCourseDto): Promise<void>;
   updateCourse(courseDto: UpdateCourseDto): Promise<void>;
+  listCourses(): Promise<Course[]>;
 }

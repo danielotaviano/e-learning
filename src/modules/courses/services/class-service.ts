@@ -26,4 +26,8 @@ export class CourseService implements CourseServiceInterface {
     const { id, ...course } = courseDto;
     return await this.courseRepository.update(courseDto.id, course);
   }
+
+  public async listCourses(): Promise<Course[]> {
+    return await this.courseRepository.findAll();
+  }
 }

@@ -23,4 +23,8 @@ export class CourseController implements CourseControllerInterface {
   public async updateCourse(courseDto: UpdateCourseDto): Promise<void> {
     await this.courseService.updateCourse(courseDto);
   }
+
+  public async listCourses(): Promise<Course[]> {
+    return await this.courseService.listCourses();
+  }
 }

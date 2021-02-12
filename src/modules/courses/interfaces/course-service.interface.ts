@@ -10,4 +10,5 @@ export interface CourseServiceInterface {
   getCourse(courseDto: GetCourseDto): Promise<Course>;
   deleteCourse(courseDto: DeleteCourseDto): Promise<DeleteResult>;
   updateCourse(courseDto: UpdateCourseDto): Promise<UpdateResult>;
+  listCourses(): Promise<Course[]>;
 }

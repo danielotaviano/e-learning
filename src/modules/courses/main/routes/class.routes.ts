@@ -22,6 +22,12 @@ router.get('/:id', async function (req, res) {
   return res.json(course);
 });
 
+// ListCourses
+router.get('', async function (req, res) {
+  const courses = await courseController.listCourses();
+  return res.json(courses);
+});
+
 // DeleteCourse
 router.delete('/:id', async function (req, res) {
   const { id } = req.params;
