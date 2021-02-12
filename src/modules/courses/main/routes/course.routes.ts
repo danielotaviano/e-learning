@@ -1,4 +1,5 @@
 import { Router } from 'express';
+import { CourseModulesRepository } from '../../../../repositories/course-modules-repository';
 import { CourseRepository } from '../../../../repositories/course-repository';
 import { DtoValidation } from '../../../../validation/dto-validation';
 import { CourseController } from '../../controllers/course-controller';
@@ -7,7 +8,8 @@ import { CourseService } from '../../services/course-service';
 const router = Router();
 
 const courseRepository = new CourseRepository();
-const courseService = new CourseService(courseRepository);
+const courseModulesRepository = new CourseModulesRepository();
+const courseService = new CourseService(courseRepository, courseModulesRepository);
 const courseValidation = new DtoValidation();
 const courseController = new CourseController(courseService, courseValidation);
 
@@ -22,6 +24,13 @@ router.post('/', async function (req, res) {
 router.get('/:id', async function (req, res) {
   const { id } = req.params;
   const httpResponse = await courseController.getCourse({ id });
+  return res.status(httpResponse.statusCode).json(httpResponse.body);
+});
+
+// GetCourseModules
+router.get('/:id/modules', async function (req, res) {
+  const { id } = req.params;
+  const httpResponse = await courseController.getCourseModules({ course_id: id });
   return res.status(httpResponse.statusCode).json(httpResponse.body);
 });
 

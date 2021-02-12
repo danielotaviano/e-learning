@@ -3,6 +3,7 @@ import { DtoValidationInterface } from '../../../validation/interface/dto-valida
 import { CreateCourseDto } from '../dtos/create-course-dto';
 import { DeleteCourseDto } from '../dtos/delete-course-dto';
 import { GetCourseDto } from '../dtos/get-course-dto';
+import { GetCourseModulesDto } from '../dtos/get-course-modules-dto';
 import { UpdateCourseDto } from '../dtos/update-course-dto';
 import { CourseControllerInterface } from '../interfaces/course-controller.interface';
 import { CourseServiceInterface } from '../interfaces/course-service.interface';
@@ -32,6 +33,16 @@ export class CourseController implements CourseControllerInterface {
     }
 
     return ok(await this.courseService.getCourse(courseDto));
+  }
+
+  public async getCourseModules(courseDto: GetCourseModulesDto): Promise<HttpResponse> {
+    const getCourseModules = Object.assign(new GetCourseModulesDto(), courseDto);
+    const errors = await this.courseDtoValidation.validate(getCourseModules);
+    if (errors) {
+      return badRequest(errors);
+    }
+
+    return ok(await this.courseService.listCourseModules(courseDto));
   }
 
   public async deleteCourse(courseDto: DeleteCourseDto): Promise<HttpResponse> {
