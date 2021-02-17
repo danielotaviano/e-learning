@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import { CourseModulesRepository } from '../../../../repositories/course-modules-repository';
+import { DtoValidation } from '../../../../validation/dto-validation';
 import { CourseModulesController } from '../../controllers/course-modules-controller';
 import { CourseModulesService } from '../../services/course-modules-service';
 
@@ -7,8 +8,8 @@ const router = Router();
 
 const courseModulesRepository = new CourseModulesRepository();
 const courseService = new CourseModulesService(courseModulesRepository);
-// const courseValidation = new DtoValidation();
-const courseModulesController = new CourseModulesController(courseService);
+const courseValidation = new DtoValidation();
+const courseModulesController = new CourseModulesController(courseService, courseValidation);
 
 // CreateCourseModule
 router.post('/', async function (req, res) {
